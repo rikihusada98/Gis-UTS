@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Peta Nusa Tenggara Barat</title>
+
+    <!-- load css leaflet -->
+    <link rel="stylesheet" href="src/leaflet.css">
+    <!-- load js leaflet -->
+    <script src="src/leaflet.js"></script>
+    <script src ="E:\qgis\uts gis\qgis\batukeliang.js" type="text/javascript"></script>
+    <script src="E:\qgis\uts gis\qgis\batukeliangutara.js" type="text/javascript"></script>
+    <script src="E:\qgis\uts gis\qgis\janapria.js" type="text/javascript"></script>
+    <script src="E:\qgis\uts gis\qgis\jonggat.js" type="text/javascript"></script>
+    <script src="E:\qgis\uts gis\qgis\kopang.js" type="text/javascript"></script>
+    <script src="E:\qgis\uts gis\qgis\praya.js" type="text/javascript"></script>
+    <script src="E:\qgis\uts gis\qgis\prayabarat.js" type="text/javascript"></script>
+    <script src="E:\qgis\uts gis\qgis\prayatengah.js" type="text/javascript"></script>
+    <script src="E:\qgis\uts gis\qgis\prayatimur.js" type="text/javascript"></script>
+    <script src="E:\qgis\uts gis\qgis\pringgarata.js" type="text/javascript"></script>
+    <script src="E:\qgis\uts gis\qgis\pujut.js" type="text/javascript"></script>
+     <script src="E:\qgis\uts gis\qgis\prayabaratdaya.js" type="text/javascript"></script>
+    <style>
+        body,html{
+            padding: 0px;
+            margin: 0px;
+            height: 100%;
+        }
+        #ntbmap{
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="ntbmap"></div>
+
+
+    <script>
+     var petaku = L.map('ntbmap').setView([ -8.7034887,116.3370099], 12);
+    
+     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiamloYWR1bDRrYmFyIiwiYSI6ImNqZ3lzOXpmaDA0bGQzMnJveGh5eW5lZjgifQ.IrFoCdc8VtGPQEzUFPqG_A', 
+     {
+         attribution:'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, '+ 
+                     'Createby &copy; <a href="https://www.jihadul4kbar.github.io/">Jihadul Akbar</a>',
+	 	id: 'mapbox.streets'
+    }).addTo(petaku);
+
+     var greenIcon = L.icon({
+    iconUrl: 'leaf-green.png',
+    shadowUrl: 'leaf-shadow.png',
+
+    iconSize:     [38, 95], // size of the icon
+    shadowSize:   [50, 64], // size of the shadow
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+     var masjidIcon = L.icon({
+    iconUrl: 'masjid.png',
+   
+
+    iconSize:     [38, 95], // size of the icon
+    shadowSize:   [50, 64], // size of the shadow
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
+       var redIcon = L.icon({
+    iconUrl: 'leaf-red.png',
+    shadowUrl: 'leaf-shadow.png',
+
+    iconSize:     [38, 95], // size of the icon
+    shadowSize:   [50, 64], // size of the shadow
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+ 
+    var mapIcon = L.Icon.extend({
+        options: {
+            iconSize:  [33, 38],
+            iconAnchor: [22, 94],
+            popupAnchor: [-6, -98]
+
+        }
+    });
+
+      var masjidIcon = L.icon({
+    iconUrl: 'masjid.png',
+  
+
+    iconSize:     [50, 95], // size of the icon
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
+ var tokoIcon = L.icon({
+    iconUrl: 'toko.JPG',
+  
+
+    iconSize:     [50, 95], // size of the icon
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
+var pasarIcon = L.icon({
+    iconUrl: 'pasar.PNG',
+  
+
+    iconSize:     [50, 95], // size of the icon
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+   
+var sekolahIcon = L.icon({
+    iconUrl: 'sekolah.PNG',
+  
+
+    iconSize:     [50, 95], // size of the icon
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+   
+var rumahmakanIcon = L.icon({
+    iconUrl: 'RM.PNG',
+  
+
+    iconSize:     [50, 95], // size of the icon
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
+var  camatIcon = L.icon({
+    iconUrl: 'camat.PNG',
+
+    iconSize:     [50, 95], // size of the icon
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor 
+});
+
+
+var rumahsakitIcon = L.icon({
+    iconUrl:  'RS.PNG',
+
+    iconSize:     [50, 95], // size of the icon
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor 
+});
+
+
+var tamanIcon = L.icon({
+    iconUrl:  'tamanbermain.PNG',
+
+    iconSize:     [50, 95], // size of the icon
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor 
+});
+
+var smartIcon = L.icon({
+    iconUrl:  'smartgarden.JPG',
+
+    iconSize:     [50, 95], // size of the icon
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor 
+});
+
+var bupatiIcon = L.icon({
+    iconUrl:  'bupati.PNG',
+
+    iconSize:     [50, 95], // size of the icon
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor 
+});
+
+var polisiIcon = L.icon({
+    iconUrl:  'polisi.JPG',
+
+    iconSize:     [50, 95], // size of the icon
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor 
+});
+
+
+var bendunganIcon = L.icon({
+    iconUrl:  'bendungan.PNG',
+
+    iconSize:     [50, 95], // size of the icon
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor 
+});
+       var redIcon = L.icon({
+    iconUrl: 'leaf-red.png',
+    shadowUrl: 'leaf-shadow.png',
+
+    iconSize:     [38, 95], // size of the icon
+    shadowSize:   [50, 64], // size of the shadow
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+ 
+    var mapIcon = L.Icon.extend({
+        options: {
+            iconSize:  [33, 38],
+            iconAnchor: [22, 94],
+            popupAnchor: [-6, -98]
+
+        }
+    });
+
+
+    L.marker([-8.6128812,116.3103311], {icon: camatIcon}).addTo(petaku)
+      .bindPopup('Kantor camat batu keliang. <br> Lombok Tengah');
+
+    L.marker([-8.588949,116.3245473], {icon: camatIcon}).addTo(petaku)
+    .bindPopup('Kantor Camat Batu Keliang Utara. <br> Lombok Tengah');
+
+    L.marker([-8.6942821,116.3995881], {icon: camatIcon}).addTo(petaku)
+    .bindPopup('Kantor Camat janapria. <br> Lombok Tengah');
+
+    L.marker([-8.6525193,116.1979991], {icon: camatIcon}).addTo(petaku)
+    .bindPopup('Kantor Camat Jonggt. <br> Lombok Tengah');
+
+    L.marker([-8.6343426,116.3548378], {icon: camatIcon}).addTo(petaku)
+    .bindPopup('Kantor Camat Kopang. <br> Lombok Tengah');
+
+    L.marker([-8.7237617,116.2390471], {icon: camatIcon}).addTo(petaku)
+    .bindPopup('Kantor Camat Praya. <br> Lombok Tengah');
+
+    L.marker([-8.742301,116.2410837], {icon: camatIcon}).addTo(petaku)
+    .bindPopup('Kantor Camat Praya Barat. <br> Lombok Tengah');
+
+    L.marker([-8.7385415,116.2015728],{icon: camatIcon}).addTo(petaku)
+    .bindPopup('Kantor Camat Praya Barat Daya. <br> Lombok Tengah');
+
+    L.marker([-8.7340447,116.316331], {icon: camatIcon}).addTo(petaku)
+    .bindPopup('Kantor Camat Praya Tengah. <br> Lombok Tengah');
+
+    L.marker([-8.7614541,116.3561055], {icon: camatIcon}).addTo(petaku)
+    .bindPopup('Kantor Camat Praya Timur. <br> Lombok Tengah');
+
+    L.marker([-8.6190565,116.2517066], {icon: camatIcon}).addTo(petaku)
+    .bindPopup('Kantor Camat pringgarata. <br> Lombok Tengah');
+
+    L.marker([-8.8004563,116.292598], {icon: camatIcon}).addTo(petaku)
+    .bindPopup('Kantor Camat Pujut. <br> Lombok Tengah');
+
+    L.marker([-8.7019832,116.2958626], {icon: rumahsakitIcon}).addTo(petaku)
+    .bindPopup('Rumah Sakit Umum Daerah Praya. <br> Lombok Tengah');
+
+    L.marker([-8.7060444,116.2726082], {icon: rumahsakitIcon}).addTo(petaku)
+    .bindPopup('Puskesmas Praya. <br> Lombok Tengah');
+
+    L.marker ([-8.7045539,116.2712998], {icon: tamanIcon}).addTo(petaku)
+    .bindPopup('Lapangan Muhajirin Praya. <br> Lombok Tengah');
+
+    L.marker([-8.7141343,116.2639882], {icon: smartIcon}).addTo(petaku)
+    .bindPopup('Tonjeng Beru smart garden. <br> Lombok Tengah');
+
+    L.marker([-8.7061917,116.2691035], {icon: bupatiIcon }).addTo(petaku)
+    .bindPopup('Kantor Bupati. <br> Lombok Tengah');
+
+    L.marker([-8.7093713,116.2793799], {icon: polisiIcon}).addTo(petaku)
+    .bindPopup('Polres. <br> Lombok Tengah');
+
+    L.marker([-8.7320897,116.2726254], {icon: bendunganIcon}).addTo(petaku)
+    .bindPopup('Bendungan Batujai. <br> Lombok Tengah');
+
+    L.marker([-8.7575494,116.1880415], {icon: bendunganIcon}).addTo(petaku)
+    .bindPopup('Bendungan Pengge <br> Lombok Tengah');
+
+
+
+    
+
+      
+
+      
+
+    
+  
+
+    
+    
+    
+    
+    L.geoJSON([batukeliang, batukeliangutara, janapria, jonggat, kopang, praya, prayabarat, prayatengah, prayatimur, pringgarata, pujut, prayabaratdaya],{
+		style: function (feature) {
+			return feature.properties && feature.properties.style;
+		}
+	}).addTo(petaku);
+    </script>
+</body>
+</html>
